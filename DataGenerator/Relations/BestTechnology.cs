@@ -1,11 +1,9 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class BestTechnology
     {
-        public Person Person { get; set; }
-        public Technology Technology { get; set; }
+        public int PersonId { get; set; }
+        public string Technology { get; set; }
         public int YearsOfExperience { get; set; }
     }
 }

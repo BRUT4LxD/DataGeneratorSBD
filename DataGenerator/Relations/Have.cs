@@ -1,10 +1,8 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class Have
     {
-        public Person Person { get; set; }
-        public Hobby Hobby { get; set; }
+        public int PersonId { get; set; }
+        public string Hobby { get; set; }
     }
 }

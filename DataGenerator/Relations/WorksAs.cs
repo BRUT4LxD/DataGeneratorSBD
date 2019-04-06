@@ -1,10 +1,8 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class WorksAs
     {
-        public Person Person { get; set; }
-        public Job Job { get; set; }
+        public int PersonId { get; set; }
+        public string Job { get; set; }
     }
 }

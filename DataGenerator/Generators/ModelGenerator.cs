@@ -1,4 +1,5 @@
-﻿using DataGenerator.Model;
+﻿using DataGenerator.Generators;
+using DataGenerator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,16 +23,12 @@ namespace DataGenerator
         public List<University> GenerateUniversities()
         {
             var universities = new List<University>();
-            const int maxSemester = 11;
 
             foreach (var university in Data.University)
             {
                 foreach (var specialization in Data.Specializations)
                 {
-                    for (var i = 0; i < maxSemester; i++)
-                    {
-                        universities.Add(new University { Name = university, Semester = i, Specialization = specialization });
-                    }
+                    universities.Add(new University { Name = university, Specialization = specialization });
                 }
             }
 
@@ -53,16 +50,15 @@ namespace DataGenerator
             return Data.Languages.Select(e => new Language { Name = e }).ToList();
         }
 
-        public List<Job> GenerateJobs(int number)
+        public List<Job> GenerateJobs()
         {
-            var jobNamesNumber = Data.Jobs.Count;
             var jobs = new List<Job>();
-            for (var i = 0; i < number; i++)
+            foreach (var job in Data.Jobs)
             {
                 jobs.Add(new Job
                 {
                     AverageSalary = _random.Next(8000, 25000),
-                    Name = Data.Jobs[_random.Next(jobNamesNumber)]
+                    Name = job
                 });
             }
 
@@ -91,7 +87,7 @@ namespace DataGenerator
             return persons;
         }
 
-        public List<ProgrammingLanguage> GenerateProgrammingLanguages(int number)
+        public List<ProgrammingLanguage> GenerateProgrammingLanguages()
         {
             return Data.ProgrammingLanguages.Select(e => new ProgrammingLanguage { Name = e }).ToList();
         }

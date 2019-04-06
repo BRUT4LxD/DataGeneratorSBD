@@ -1,7 +1,7 @@
 ﻿using DataGenerator.Model;
 using System.Collections.Generic;
 
-namespace DataGenerator
+namespace DataGenerator.Generators
 {
     internal interface IModelGenerator
     {
@@ -11,8 +11,8 @@ namespace DataGenerator
         List<Hobby> GenerateHobbies();
         List<Technology> GenerateTechnologies();
         List<Language> GenerateLanguages();
-        List<Job> GenerateJobs(int number);
+        List<Job> GenerateJobs();
         List<Person> GeneratePersons(int number);
-        List<ProgrammingLanguage> GenerateProgrammingLanguages(int number);
+        List<ProgrammingLanguage> GenerateProgrammingLanguages();
     }
 }

@@ -1,10 +1,8 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class Lives
     {
-        public Person Person { get; set; }
-        public Country Country { get; set; }
+        public int PersonId { get; set; }
+        public string Country { get; set; }
     }
 }

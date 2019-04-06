@@ -13,7 +13,7 @@ namespace DataGenerator.Generators
             var haves = new List<Have>();
             foreach (var person in persons)
             {
-                haves.Add(new Have { Person = person, Hobby = hobbies[_random.Next(hobbies.Count)] });
+                haves.Add(new Have { PersonId = person.Id, Hobby = hobbies[_random.Next(hobbies.Count)].Name });
             }
 
             return haves;
@@ -23,9 +23,12 @@ namespace DataGenerator.Generators
         {
             var knows = new List<Knows>();
             List<int> ids;
+            DateTime minDate = new DateTime(2011, 1, 1);
+            var maxDays = DateTime.Now.Subtract(minDate).Days;
             foreach (var person in persons)
             {
-                int connections = _random.Next(40);
+
+                int connections = _random.Next(200);
                 ids = new List<int> { person.Id };
                 for (var i = 0; i < connections; i++)
                 {
@@ -36,7 +39,7 @@ namespace DataGenerator.Generators
                         personId = _random.Next(persons.Count);
                     }
 
-                    knows.Add(new Knows { Person1 = person, Person2 = persons[personId] });
+                    knows.Add(new Knows { Person1Id = person.Id, Person2Id = persons[personId].Id, Since = minDate.AddDays(_random.Next(maxDays)).ToString("d") });
                 }
             }
 
@@ -49,7 +52,7 @@ namespace DataGenerator.Generators
             var livings = new List<Lives>();
             foreach (var person in persons)
             {
-                livings.Add(new Lives { Person = person, Country = countries[_random.Next(countries.Count)] });
+                livings.Add(new Lives { PersonId = person.Id, Country = countries[_random.Next(countries.Count)].City });
             }
 
             return livings;
@@ -71,7 +74,7 @@ namespace DataGenerator.Generators
                         lang = _random.Next(languages.Count);
                     }
 
-                    speaks.Add(new Speaks { Person = person, Language = languages[lang] });
+                    speaks.Add(new Speaks { PersonId = person.Id, Language = languages[lang].Name, Level = Data.LanguageLevel[_random.Next(5)] });
                 }
             }
 
@@ -81,9 +84,10 @@ namespace DataGenerator.Generators
         public List<Studies> GenerateStudying(List<Person> persons, List<University> universities)
         {
             var studies = new List<Studies>();
+            const int maxSemester = 11;
             foreach (var person in persons)
             {
-                studies.Add(new Studies { Person = person, University = universities[_random.Next(universities.Count)] });
+                studies.Add(new Studies { PersonId = person.Id, University = universities[_random.Next(universities.Count)].Name, Semester = _random.Next(maxSemester) + 1 });
             }
 
             return studies;
@@ -101,11 +105,12 @@ namespace DataGenerator.Generators
                 var end = _random.Next(500) + start;
                 worksIn.Add(new WorksIn
                 {
-                    Person = person,
-                    Company = companies[_random.Next(companies.Count)],
+                    PersonId = person.Id,
+                    Company = companies[_random.Next(companies.Count)].Name,
                     Start = minDate.AddDays(start).ToString("d"),
-                    End = minDate.AddDays(end).ToString("d")
+                    End = minDate.AddDays(end).Ticks > DateTime.Now.Ticks ? "---" : minDate.AddDays(end).ToString("d")
                 });
+
             }
 
             return worksIn;
@@ -116,7 +121,7 @@ namespace DataGenerator.Generators
             var worksAs = new List<WorksAs>();
             foreach (var person in persons)
             {
-                worksAs.Add(new WorksAs { Person = person, Job = jobs[_random.Next(jobs.Count)] });
+                worksAs.Add(new WorksAs { PersonId = person.Id, Job = jobs[_random.Next(jobs.Count)].Name });
             }
 
             return worksAs;
@@ -127,7 +132,7 @@ namespace DataGenerator.Generators
             var bestProgrammingLanguages = new List<BestProgrammingLanguage>();
             foreach (var person in persons)
             {
-                bestProgrammingLanguages.Add(new BestProgrammingLanguage { Person = person, Skill = languages[_random.Next(languages.Count)], YearsOfExperience = _random.Next(1, 15) });
+                bestProgrammingLanguages.Add(new BestProgrammingLanguage { PersonId = person.Id, Skill = languages[_random.Next(languages.Count)].Name, YearsOfExperience = _random.Next(1, 15) });
             }
 
             return bestProgrammingLanguages;
@@ -138,7 +143,7 @@ namespace DataGenerator.Generators
             var bestTechnology = new List<BestTechnology>();
             foreach (var person in persons)
             {
-                bestTechnology.Add(new BestTechnology { Person = person, Technology = technologies[_random.Next(technologies.Count)], YearsOfExperience = _random.Next(1, 15) });
+                bestTechnology.Add(new BestTechnology { PersonId = person.Id, Technology = technologies[_random.Next(technologies.Count)].Name, YearsOfExperience = _random.Next(1, 15) });
             }
 
             return bestTechnology;

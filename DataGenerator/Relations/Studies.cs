@@ -1,12 +1,10 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class Studies
     {
-        public Person Person { get; set; }
-        public University University { get; set; }
-        public string Start { get; set; }
-        public string End { get; set; }
+        public int PersonId { get; set; }
+        public string University { get; set; }
+
+        public int Semester { get; set; }
     }
 }

@@ -1,11 +1,9 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class Speaks
     {
-        public Person Person { get; set; }
-        public Language Language { get; set; }
+        public int PersonId { get; set; }
+        public string Language { get; set; }
         public string Level { get; set; }
     }
 }

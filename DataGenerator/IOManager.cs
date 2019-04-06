@@ -10,5 +10,22 @@ namespace DataGenerator
         {
             return File.ReadAllLines(path).ToList();
         }
+
+        public static void SaveCsv<T>(List<T> list)
+        {
+            var x = typeof(T).GetProperties();
+
+            using (var file = new StreamWriter(typeof(T).Name + ".txt"))
+            {
+                var propertiesNames = x.Select(e => e.Name).ToList();
+                file.WriteLine(string.Join(";", propertiesNames));
+                foreach (var element in list)
+                {
+                    var values = x.Select(e => element.GetType().GetProperty(e.Name)?.GetValue(element).ToString()).ToList();
+                    file.WriteLine(string.Join(";", values));
+                }
+            }
+
+        }
     }
 }
