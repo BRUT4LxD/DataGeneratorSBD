@@ -19,6 +19,40 @@ namespace DataGenerator
             return Data.Cities.Select(e => new Country { City = e, Name = "Poland" }).ToList();
         }
 
+        public List<University> GenerateUniversities()
+        {
+            var universities = new List<University>();
+            const int maxSemester = 11;
+
+            foreach (var university in Data.University)
+            {
+                foreach (var specialization in Data.Specializations)
+                {
+                    for (var i = 0; i < maxSemester; i++)
+                    {
+                        universities.Add(new University { Name = university, Semester = i, Specialization = specialization });
+                    }
+                }
+            }
+
+            return universities;
+        }
+
+        public List<Hobby> GenerateHobbies()
+        {
+            return Data.Hobbies.Select(e => new Hobby { Name = e }).ToList();
+        }
+
+        public List<Technology> GenerateTechnologies()
+        {
+            return Data.Technologies.Select(e => new Technology { Name = e }).ToList();
+        }
+
+        public List<Language> GenerateLanguages()
+        {
+            return Data.Languages.Select(e => new Language { Name = e }).ToList();
+        }
+
         public List<Job> GenerateJobs(int number)
         {
             var jobNamesNumber = Data.Jobs.Count;
@@ -45,7 +79,7 @@ namespace DataGenerator
             {
                 persons.Add(new Person
                 {
-                    Age = _random.Next(18,50),
+                    Age = _random.Next(18, 50),
                     Id = i,
                     Name = Data.PersonNames[_random.Next(namesCount)],
                     Surname = Data.PersonSurnames[_random.Next(surnamesCount)],
@@ -57,14 +91,10 @@ namespace DataGenerator
             return persons;
         }
 
-        public List<Skill> GenerateSkills(int number)
+        public List<ProgrammingLanguage> GenerateProgrammingLanguages(int number)
         {
-
+            return Data.ProgrammingLanguages.Select(e => new ProgrammingLanguage { Name = e }).ToList();
         }
 
-        public List<University> GenerateUniversities(int number)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

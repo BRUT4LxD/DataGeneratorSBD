@@ -11,7 +11,7 @@ namespace DataGenerator
             throw new System.NotImplementedException();
         }
 
-        public List<HaveSkill> GenerateHaveSkills(List<Person> persons, List<Skill> skills)
+        public List<HaveSkill> GenerateHaveSkills(List<Person> persons, List<ProgrammingLanguage> skills)
         {
             throw new System.NotImplementedException();
         }
