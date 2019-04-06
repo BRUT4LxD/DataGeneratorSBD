@@ -2,7 +2,7 @@
 
 namespace DataGenerator.Relations
 {
-    internal class Works
+    internal class WorksIn
     {
         public Person Person { get; set; }
         public Company Company { get; set; }

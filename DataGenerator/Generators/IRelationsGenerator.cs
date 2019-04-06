@@ -2,16 +2,18 @@
 using DataGenerator.Relations;
 using System.Collections.Generic;
 
-namespace DataGenerator
+namespace DataGenerator.Generators
 {
     internal interface IRelationsGenerator
     {
         List<Have> GenerateHaves(List<Person> persons, List<Hobby> hobbies);
-        List<HaveSkill> GenerateHaveSkills(List<Person> persons, List<ProgrammingLanguage> skills);
-        List<Knows> GenerateKnows(List<Person> persons, List<Person> persons2);
+        List<Knows> GenerateKnows(List<Person> persons);
         List<Lives> GenerateLivings(List<Person> persons, List<Country> countries);
         List<Speaks> GenerateSpeaks(List<Person> persons, List<Language> languages);
         List<Studies> GenerateStudying(List<Person> persons, List<University> universities);
-        List<Works> GenerateWorks(List<Person> persons, List<Job> jobs);
+        List<WorksIn> GenerateWorksIn(List<Person> persons, List<Company> companies);
+        List<WorksAs> GenerateWorksAs(List<Person> persons, List<Job> jobs);
+        List<BestProgrammingLanguage> GenerateBestProgrammingLanguages(List<Person> persons, List<ProgrammingLanguage> languages);
+        List<BestTechnology> GenerateBestTechnologies(List<Person> persons, List<Technology> technologies);
     }
 }
