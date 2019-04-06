@@ -3,6 +3,6 @@
     internal class Company
     {
         public string Name { get; set; }
-        public string Field { get; set; }
+        public int BrandPower { get; set; }
     }
 }
