@@ -15,7 +15,7 @@ namespace DataGenerator
         {
             var x = typeof(T).GetProperties();
 
-            using (var file = new StreamWriter(typeof(T).Name + ".txt"))
+            using (var file = new StreamWriter(typeof(T).Name + ".csv"))
             {
                 var propertiesNames = x.Select(e => e.Name).ToList();
                 file.WriteLine(string.Join(";", propertiesNames));

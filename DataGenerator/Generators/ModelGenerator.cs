@@ -1,10 +1,9 @@
-﻿using DataGenerator.Generators;
-using DataGenerator.Model;
+﻿using DataGenerator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataGenerator
+namespace DataGenerator.Generators
 {
 
     internal class ModelGenerator : IModelGenerator
@@ -23,12 +22,12 @@ namespace DataGenerator
         public List<University> GenerateUniversities()
         {
             var universities = new List<University>();
-
+            var counter = 0;
             foreach (var university in Data.University)
             {
                 foreach (var specialization in Data.Specializations)
                 {
-                    universities.Add(new University { Name = university, Specialization = specialization });
+                    universities.Add(new University { Id = counter++, Name = university, Specialization = specialization });
                 }
             }
 
@@ -79,7 +78,7 @@ namespace DataGenerator
                     Id = i,
                     Name = Data.PersonNames[_random.Next(namesCount)],
                     Surname = Data.PersonSurnames[_random.Next(surnamesCount)],
-                    Salary = _random.Next(5000, 50000)
+                    Salary = _random.Next(2000, 50000)
                 });
                 persons[i].Sex = persons[i].Name[persons[i].Name.Length - 1] == 'a' ? "Kobieta" : "Mężczyzna";
             }

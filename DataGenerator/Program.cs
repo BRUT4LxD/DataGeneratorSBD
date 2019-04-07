@@ -1,5 +1,5 @@
-using System;
 using DataGenerator.Generators;
+using System;
 
 namespace DataGenerator
 {
@@ -7,7 +7,6 @@ namespace DataGenerator
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             var modelGenerator = new ModelGenerator();
 
             var persons = modelGenerator.GeneratePersons(500);
@@ -19,7 +18,7 @@ namespace DataGenerator
             var programmingLanguages = modelGenerator.GenerateProgrammingLanguages();
             var universities = modelGenerator.GenerateUniversities();
             var technologies = modelGenerator.GenerateTechnologies();
-
+            
             IOManager.SaveCsv(persons);
             IOManager.SaveCsv(companies);
             IOManager.SaveCsv(countries);
@@ -41,8 +40,6 @@ namespace DataGenerator
             IOManager.SaveCsv(relationGenerator.GenerateStudying(persons, universities));
             IOManager.SaveCsv(relationGenerator.GenerateWorksAs(persons, jobs));
             IOManager.SaveCsv(relationGenerator.GenerateWorksIn(persons, companies));
-
-            Console.ReadKey();
         }
     }
 }

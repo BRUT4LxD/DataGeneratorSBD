@@ -28,7 +28,7 @@ namespace DataGenerator.Generators
             foreach (var person in persons)
             {
 
-                int connections = _random.Next(200);
+                int connections = _random.Next(50);
                 ids = new List<int> { person.Id };
                 for (var i = 0; i < connections; i++)
                 {
@@ -87,7 +87,7 @@ namespace DataGenerator.Generators
             const int maxSemester = 11;
             foreach (var person in persons)
             {
-                studies.Add(new Studies { PersonId = person.Id, University = universities[_random.Next(universities.Count)].Name, Semester = _random.Next(maxSemester) + 1 });
+                studies.Add(new Studies { PersonId = person.Id, UniversityId = universities[_random.Next(universities.Count)].Id, Semester = _random.Next(maxSemester) + 1 });
             }
 
             return studies;
