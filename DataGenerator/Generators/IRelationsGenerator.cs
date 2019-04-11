@@ -8,7 +8,7 @@ namespace DataGenerator.Generators
     {
         List<Have> GenerateHaves(List<Person> persons, List<Hobby> hobbies);
         List<Knows> GenerateKnows(List<Person> persons);
-        List<Lives> GenerateLivings(List<Person> persons, List<Country> countries);
+        List<Lives> GenerateLivings(List<Person> persons, List<City> countries);
         List<Speaks> GenerateSpeaks(List<Person> persons, List<Language> languages);
         List<Studies> GenerateStudying(List<Person> persons, List<University> universities);
         List<WorksIn> GenerateWorksIn(List<Person> persons, List<Company> companies);

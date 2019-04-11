@@ -1,6 +1,4 @@
-﻿using DataGenerator.Model;
-
-namespace DataGenerator.Relations
+﻿namespace DataGenerator.Relations
 {
     internal class BestProgrammingLanguage
     {

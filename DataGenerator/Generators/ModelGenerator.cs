@@ -14,9 +14,9 @@ namespace DataGenerator.Generators
             return Data.Companies.Select(e => new Company { Name = e, BrandPower = _random.Next(500, 1500) }).ToList();
         }
 
-        public List<Country> GenerateCountries()
+        public List<City> GenerateCountries()
         {
-            return Data.Cities.Select(e => new Country { City = e, Name = "Poland" }).ToList();
+            return Data.Cities.Select(e => new City { Name = e }).ToList();
         }
 
         public List<University> GenerateUniversities()

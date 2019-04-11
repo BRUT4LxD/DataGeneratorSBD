@@ -47,12 +47,12 @@ namespace DataGenerator.Generators
 
         }
 
-        public List<Lives> GenerateLivings(List<Person> persons, List<Country> countries)
+        public List<Lives> GenerateLivings(List<Person> persons, List<City> countries)
         {
             var livings = new List<Lives>();
             foreach (var person in persons)
             {
-                livings.Add(new Lives { PersonId = person.Id, Country = countries[_random.Next(countries.Count)].City });
+                livings.Add(new Lives { PersonId = person.Id, Country = countries[_random.Next(countries.Count)].Name });
             }
 
             return livings;
@@ -107,8 +107,8 @@ namespace DataGenerator.Generators
                 {
                     PersonId = person.Id,
                     Company = companies[_random.Next(companies.Count)].Name,
-                    Start = minDate.AddDays(start).ToString("d"),
-                    End = minDate.AddDays(end).Ticks > DateTime.Now.Ticks ? "---" : minDate.AddDays(end).ToString("d")
+                    Since = minDate.AddDays(start).ToString("d"),
+                    Until = minDate.AddDays(end).Ticks > DateTime.Now.Ticks ? "---" : minDate.AddDays(end).ToString("d")
                 });
 
             }

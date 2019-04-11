@@ -1,8 +1,7 @@
 ﻿namespace DataGenerator.Model
 {
-    internal class Country
+    internal class City
     {
         public string Name { get; set; }
-        public string City { get; set; }
     }
 }

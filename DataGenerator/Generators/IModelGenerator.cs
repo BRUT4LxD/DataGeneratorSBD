@@ -6,7 +6,7 @@ namespace DataGenerator.Generators
     internal interface IModelGenerator
     {
         List<Company> GenerateCompanies();
-        List<Country> GenerateCountries();
+        List<City> GenerateCountries();
         List<University> GenerateUniversities();
         List<Hobby> GenerateHobbies();
         List<Technology> GenerateTechnologies();
